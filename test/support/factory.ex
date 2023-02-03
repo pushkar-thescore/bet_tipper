@@ -2,11 +2,19 @@ defmodule BetTipper.Factory do
   use ExMachina.Ecto, repo: BetTipper.Repo
 
   alias BetTipper.Schemas.Bet
+  alias BetTipper.Schemas.User
+
+  def user_factory do
+    %User{
+      email: Faker.Internet.email()
+    }
+  end
 
   def bet_factory do
     %Bet{
       bet_amount_cents: Faker.random_between(10, 100) * 100,
-      patron_id: Faker.UUID.v4()
+      bet_type: :shareable,
+      patron: build(:user)
     }
   end
 
