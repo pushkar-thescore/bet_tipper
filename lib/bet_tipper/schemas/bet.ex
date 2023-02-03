@@ -43,4 +43,12 @@ defmodule BetTipper.Schemas.Bet do
     |> cast(attrs, @fields)
     |> validate_required(@required)
   end
+
+  def by_patron_id(query, patron_id) do
+    from bet in query, where: bet.patron_id == ^patron_id
+  end
+
+  def by_type(query, bet_type) do
+    from bet in query, where: bet.bet_type == ^bet_type
+  end
 end

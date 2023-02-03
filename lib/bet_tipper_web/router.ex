@@ -21,9 +21,11 @@ defmodule BetTipperWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", BetTipperWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", BetTipperWeb do
+    pipe_through :api
+    get "/:patron_id/bets", BetController, :index
+    get "/:patron_id/free_bets", BetController, :free_bets
+  end
 
   # Enables LiveDashboard only for development
   #
