@@ -51,7 +51,8 @@ defmodule BetTipper.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:ex_machina, "~> 2.7.0", only: [:dev, :test]},
       {:faker, "~>0.16", only: [:dev, :test]},
-      {:timex, "~> 3.0"}
+      {:timex, "~> 3.0"},
+      {:money, "~> 1.12"}
     ]
   end
 

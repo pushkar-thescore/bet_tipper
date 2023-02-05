@@ -24,6 +24,7 @@ defmodule BetTipperWeb.Router do
   scope "/api", BetTipperWeb do
     pipe_through :api
     get "/:patron_id/bets", BetController, :index
+    post "/:patron_id/create_bet", BetController, :create
     get "/:patron_id/free_bets", BetController, :free_bets
   end
 

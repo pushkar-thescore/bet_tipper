@@ -22,8 +22,10 @@ defmodule BetTipper.Services.PlaceBetService do
       |> Repo.transaction()
 
     case result do
-      {:ok, _} -> {:ok, :ok}
-      {:error, _, %Ecto.Changeset{} = changeset, _} -> {:error, changeset}
+      {:ok, %{created_bet: bet}} ->
+        {:ok, bet}
+      {:error, _, %Ecto.Changeset{} = changeset, _} ->
+        {:error, changeset}
     end
   end
 
