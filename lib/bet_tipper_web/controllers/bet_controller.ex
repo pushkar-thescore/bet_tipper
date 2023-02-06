@@ -21,6 +21,9 @@ defmodule BetTipperWeb.BetController do
       conn
       |> put_status(:created)
       #|> put_resp_header("location", Routes.bet_path(conn, :show, bet))
+      |> put_resp_header("Access-Control-Allow-Origin", "*")
+      |> put_resp_header("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
+      |> put_resp_header("content-type", "application/json")
       |> render("show.json", bet: bet)
     end
   end

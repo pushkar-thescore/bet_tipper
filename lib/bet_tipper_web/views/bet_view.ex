@@ -13,7 +13,7 @@ defmodule BetTipperWeb.BetView do
   def render("bet.json", %{bet: bet}) do
     %{
       id: bet.id,
-      bet_amount: bet.bet_amount_cents,
+      bet_amount: "$#{round(bet.bet_amount_cents / 100)}",
       bet_type: bet.bet_type,
       patron_id: bet.patron_id,
       friend_id: bet.friend_id,

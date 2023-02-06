@@ -61,7 +61,7 @@ defmodule BetTipper.Services.PlaceBetService do
   end
 
   defp maybe_grant_free_bet_to_friend(_, %{
-         attrs: %{tip_percentage: tip_percentage, win_amount_cents: win_amount_cents},
+         created_bet: %{tip_percentage: tip_percentage, win_amount_cents: win_amount_cents},
          friend_id: friend_id
        })
        when win_amount_cents > 0 and tip_percentage > 0.0 do

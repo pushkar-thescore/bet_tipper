@@ -11,6 +11,7 @@ defmodule BetTipperWeb.Router do
   end
 
   pipeline :api do
+    plug CORSPlug, [origin: "http://localhost:3000"]
     plug :accepts, ["json"]
   end
 
@@ -24,6 +25,7 @@ defmodule BetTipperWeb.Router do
   scope "/api", BetTipperWeb do
     pipe_through :api
     get "/:patron_id/bets", BetController, :index
+    options "/:patron_id/create_bet", BetController, :options
     post "/:patron_id/create_bet", BetController, :create
     get "/:patron_id/free_bets", BetController, :free_bets
   end
